@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="accountService" class="com.pinyougou.account.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+
+    <bean id="accountDao" class="com.pinyougou.account.dao.impl.AccountDaoImpl">
+        <property name="runner" ref="runner"></property>
+    </bean>
+    <!--创建QueryRunner对象-->
+    <bean class="org.apache.commons.dbutils.QueryRunner" id="runner" scope="prototype">
+        <constructor-arg name="ds" ref="dataSource" />
+    </bean>
+    <!--创建数据源-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/spring" />
+        <property name="user" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+</beans>

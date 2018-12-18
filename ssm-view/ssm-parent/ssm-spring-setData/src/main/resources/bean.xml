@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="accountService"
+      class="com.pinyougou.account.service.impl.AccountServiceImpl">
+            <property name="name" value="xioaming" ></property>
+            <property name="age" value="22" ></property>
+            <property name="birthday" ref="date"></property>
+
+    </bean>
+    <bean id="date" class="java.util.Date"></bean>
+    <bean id="accountDao"
+          class="com.pinyougou.account.dao.impl.AccountDaoImpl">
+    </bean>
+
+</beans>
