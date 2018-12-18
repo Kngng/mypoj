@@ -1,4 +1,6 @@
 ﻿1212
 121221
 我要修改
- ssh-keygen -t rsa -C ‘1191880177@qq.com’
+ ssh-keygen -t rsa -C ‘1191880177@qq.com’、
+用户1 修改了数据
+121221年男的女的
